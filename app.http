@@ -1,0 +1,74 @@
+### - REGISTER A USER
+POST http://localhost:3000/api/employee/register
+Content-Type: application/json
+
+{
+    "FirstName": "COLLINS",
+    "LastName": "KAMAU",
+    "Email": "KAMAUC2AMOW4@gmil.com",
+    "Password": "1234",
+    "Address": "123 kinunga",
+    "BirthDate": "1995-02-08",
+    "ContactInfo": "0797519877",
+    "Gender": "Male",
+    "Position": "Operations Manager",
+    "PhotoURL": "https://example.com/photo.jpg",
+    "HourlyRate": 40.00,
+    "GrossPay": 70.00,
+    "NHIFDeduction": 10.00,
+    "NSSFDeduction": 10.00,
+    "HELBDeduction": 15.00,
+    "NetPay": 60.00,
+    "Role": "ADMIN",
+    "ClockInTime": "08:00",
+    "ClockOutTime": "19:00",
+    "HoursWorked": 11,
+    "Overtime": 2
+}
+
+
+#### - login 
+POST http://localhost:3000/api/employee/login
+Content-Type: application/json
+
+{
+    "Email": "ndegwajeff4@gmil.com",
+    "Password": "$2b$05$tICjkDNbXer/S6JIjzV/euqYqmwxqg2LJwq/oSRMgJWf0hmssH.Ti"
+}
+
+### - get all employeese
+GET http://localhost:3000/api/employee
+
+### get user by id
+GET http://localhost:3000/api/employee/7e413708-8147-4e11-9682-a95d30145536
+
+### delete employee
+DELETE  http://localhost:3000/api/employee/9d73aaf6-bb7f-4f5b-8fcc-12deb3c8a0c9
+
+##########################################################################################################
+### - TIME
+
+### Create time
+POST http://localhost:3000/api/createTime
+Content-Type: application/json
+
+{
+    "EmployeeID": "7a8f5c15-270b-4e96-89ff-b048ca3d3d97",
+    "ClockInTime": "08:00",
+    "ClockOutTime": "21:00"
+}
+
+### - get time via ID
+GET http://localhost:3000/api/getTime/7a8f5c15-270b-4e96-89ff-b048ca3d3d97
+
+### update the time
+POST http://localhost:3000/api/updateTime/
+Content-Type: application/json
+
+{
+    "EmployeeID": "7a8f5c15-270b-4e96-89ff-b048ca3d3d97",
+    "ClockInTime": "08:00",
+    "ClockOutTime": "18:00"
+}
+
+
