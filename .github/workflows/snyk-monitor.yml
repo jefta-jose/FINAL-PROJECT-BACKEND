@@ -1,13 +1,24 @@
-name: Example workflow using Snyk
-on: push
+name: Snyk Security Scan
+
+on: [push, pull_request]
+
 jobs:
   security:
+    name: Snyk Scan
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@master
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 'node'
+
       - name: Run Snyk to check for vulnerabilities
-        uses: snyk/actions/node@master
+        uses: snyk/actions/node@master # Use snyk/actions/[your ecosystem]
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
-          command: monitor
+          args: test --all-projects
